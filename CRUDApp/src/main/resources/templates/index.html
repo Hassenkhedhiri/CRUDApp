@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h3>Account List</h3>
+<a href="/add">Add New Account</a>
+<table border="1" cellpadding="2" cellspacing="2">
+
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Full Name</th>
+        <th>option</th>
+    </tr>
+
+    <tbody>
+    <tr th:each="account : ${accounts}">
+        <td th:text="${account.id}"></td>
+        <td th:text="${account.username}"></td>
+        <td th:text="${account.fullName}"></td>
+        <td>
+            <a th:href="@{'/edit/'+${account.id}}" >Edit</a>
+           <!-- <a href="delete/">Delete</a> -->
+            <a th:href="@{'/delete/'+${account.id}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')" >Delete</a>
+        </td>
+    </tr>
+
+
+    </tbody>
+
+</table>
+
+</body>
+</html>

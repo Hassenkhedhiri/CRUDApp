@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<h3>Update Account</h3>
+<form th:action="@{/edit}" object="${account}" method="post">
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+            <td>Username</td>
+            <td><input type="text" id="username" name="username" th:value="${account.username}" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="password" name="password" th:value="*{password}" /> </td>
+        </tr>
+        <tr>
+            <td>Full Name</td>
+            <td><input type="text" id="fullName" name="fullName" th:value="${account.fullName}" /></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Edit"/></td>
+            <input type="hidden" id="id" name="id" th:value="*{id}" />
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
